@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: HomePage(),
     );
   }
 }
@@ -45,32 +45,6 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return Expanded(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Row(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width / 1.1,
-                alignment: Alignment.center,
-                child: Text("Indian Coal Mines", style: TextStyle(
-                  fontSize: 34,
-                ),)
-              )
-            ]
-          ),
-        ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                child: Text('Navigation'),
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-=======
     return Scaffold(
       appBar: AppBar(),
       drawer: Drawer(
@@ -81,43 +55,42 @@ class _DashboardState extends State<Dashboard> {
               child: Text('Navigation'),
               decoration: BoxDecoration(
                 color: Colors.blue,
->>>>>>> 3f07ae7497960cda8843af9c7c92f6a2d411b36d
               ),
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Home'),
-                onTap: () {
-                  setState(() {
-                    _currentIndex = 0;
-                  });
-                  Navigator.pop(context); // Close the drawer
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.analytics),
-                title: Text('Analytics'),
-                onTap: () {
-                  setState(() {
-                    _currentIndex = 1;
-                  });
-                  Navigator.pop(context); // Close the drawer
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.update),
-                title: Text('Update Data'),
-                onTap: () {
-                  setState(() {
-                    _currentIndex = 2;
-                  });
-                  Navigator.pop(context); // Close the drawer
-                },
-              ),
-            ],
-          ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {
+                setState(() {
+                  _currentIndex = 0;
+                });
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.analytics),
+              title: Text('Analytics'),
+              onTap: () {
+                setState(() {
+                  _currentIndex = 1;
+                });
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.update),
+              title: Text('Update Data'),
+              onTap: () {
+                setState(() {
+                  _currentIndex = 2;
+                });
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+          ],
         ),
-        body: _pages[_currentIndex], // Show the selected page
       ),
+      body: _pages[_currentIndex], // Show the selected page
     );
   }
 }
