@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class AnalyticsPage extends StatefulWidget {
@@ -12,6 +14,6 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
        body: Center(child: Text("Analytics Page")),
-    );;
+    );
   }
 }
