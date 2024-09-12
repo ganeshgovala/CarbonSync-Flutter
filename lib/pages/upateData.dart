@@ -44,10 +44,9 @@ class _UpdatedataState extends State<Updatedata> {
 
       FirebaseFirestore.instance
         .collection('DayWiseData')
-        .doc('date')
-        .collection(_date.toString())
-        .doc()
-        .set(data);
+        .doc(_date.toString())
+        .collection('data')
+        .add(data);
     } else {
       showDialog(
         context: context, 
