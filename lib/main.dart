@@ -4,7 +4,7 @@ import 'package:carbonsync/firebase_options.dart';
 import 'package:carbonsync/pages/AnalyticsPage.dart';
 import 'package:carbonsync/pages/HomePage.dart';
 import 'package:carbonsync/pages/LoginPage.dart';
-import 'package:carbonsync/pages/SettingsPage.dart';
+import 'package:carbonsync/pages/upateData.dart';
 import 'package:carbonsync/pages/Graph1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:SettingsPage(),
+      home: Dashboard(),
     );
   }
 }
@@ -40,7 +40,7 @@ class _DashboardState extends State<Dashboard> {
   final List<Widget> _pages = [
     HomePage(),
     AnalyticsPage(),
-    SettingsPage(),
+    Updatedata(),
   ];
 
   @override
@@ -90,8 +90,8 @@ class _DashboardState extends State<Dashboard> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              leading: Icon(Icons.update),
+              title: Text('Update Data'),
               onTap: () {
                 setState(() {
                   _currentIndex = 2;
