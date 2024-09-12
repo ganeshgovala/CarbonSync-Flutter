@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-// ignore_for_file: prefer_const_constructors
-=======
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:carbonsync/main.dart';
 import 'package:carbonsync/pages/AnalyticsPage.dart';
 import 'package:carbonsync/pages/Graph1.dart';
->>>>>>> 6ea4f5ab8c5da9f4f5f307d5003da7c8fe9e5945
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,31 +16,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
         body: Padding(
           padding: const EdgeInsets.all(12.0),
           child: SingleChildScrollView(
             child: Column(
-=======
-<<<<<<< HEAD
-       body: Scaffold(
-        body: Row(
-          children: [
-            Image.asset('lib/assets/emblem.png'),
-            Text("Ministry of Coal Mines"),
-          ],
-        ),
-       ),
-    );
-=======
-        body: Expanded(
-          child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
->>>>>>> 3f07ae7497960cda8843af9c7c92f6a2d411b36d
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -181,6 +156,5 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ));
->>>>>>> 6ea4f5ab8c5da9f4f5f307d5003da7c8fe9e5945
   }
 }
