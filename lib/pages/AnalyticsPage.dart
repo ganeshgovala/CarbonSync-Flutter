@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:carbonsync/pages/Graph1.dart';
 import 'package:flutter/material.dart';
 
 class AnalyticsPage extends StatefulWidget {
@@ -22,18 +23,30 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    height: 500, 
-                    width: MediaQuery.of(context).size.width / 2 - 50,
-                    color: Colors.blue,
-                    child: Center(child: Text("graph1")),
+                  Material(
+                    borderRadius: BorderRadius.circular(30),
+                    elevation: 8,
+                    child: Container(
+                      height: 500, 
+                      width: MediaQuery.of(context).size.width / 2 - 50,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: BarChartSample2()
+                      ),
+                    ),
                   ),
-                  Container(
-                    height: 500, 
-                    width: MediaQuery.of(context).size.width / 2 - 50,
-                    color: Colors.blue,
-                    child: Center(child: Text("graph1")),
-                  )
+                  Material(
+                    borderRadius: BorderRadius.circular(30),
+                    elevation: 8,
+                    child: Container(
+                      height: 500, 
+                      width: MediaQuery.of(context).size.width / 2 - 50,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: BarChartSample2()
+                      ),
+                    ),
+                  ),
                 ],
               ),
               SizedBox(height: 30),
