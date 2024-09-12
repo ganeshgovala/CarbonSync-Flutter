@@ -26,14 +26,14 @@ class _CarbonFootprintFormState extends State<CarbonFootprintForm> {
   final _gasController = TextEditingController();
   double carbonFootprint = 0.0;
 
-  // void _calculateFootprint() {
-  //   setState(() {
-  //     // Placeholder formula for calculation
-  //     double electricity = double.tryParse(_electricityController.text) ?? 0.0;
-  //     double gas = double.tryParse(_gasController.text) ?? 0.0;
-  //     carbonFootprint = electricity * 0.233 + gas * 0.185; // Dummy coefficients
-  //   });
-  // }
+  void _calculateFootprint() {
+    setState(() {
+      // Placeholder formula for calculation
+      double electricity = double.tryParse(_electricityController.text) ?? 0.0;
+      double gas = double.tryParse(_gasController.text) ?? 0.0;
+      carbonFootprint = electricity * 0.233 + gas * 0.185; // Dummy coefficients
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,19 +52,36 @@ class _CarbonFootprintFormState extends State<CarbonFootprintForm> {
           SizedBox(
             height: 10,
           ),
-          Text(
-            "Number of tonnes of Coal Extracted",
-            style: TextStyle(
-              fontFamily: 'Courier',
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
+         Row(
+           children: [
+            Text(
+              "Coal Extracted : ",
+              style: TextStyle(
+                fontFamily: 'Courier',
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
-         TextField(
-             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: "Fuel"
-             ),
+            SizedBox(width: 20),
+            SizedBox(
+              width: 120,
+              height: 40,
+              child: TextField(
+                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 2,
+                      )
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 2,
+                      )
+                    ),
+                   ),
+               ),
+            ),
+           ],
          ),
           SizedBox(
             height: 20,
