@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Dashboard',
+      title: 'CarbonSync',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -35,7 +35,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  int _currentIndex = 1;
+  int _currentIndex = 2;
 
   final List<Widget> _pages = [
     HomePage(),
@@ -45,6 +45,7 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return Expanded(
       child: Scaffold(
         appBar: AppBar(
@@ -69,6 +70,18 @@ class _DashboardState extends State<Dashboard> {
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
+=======
+    return Scaffold(
+      appBar: AppBar(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Navigation'),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+>>>>>>> 3f07ae7497960cda8843af9c7c92f6a2d411b36d
               ),
               ListTile(
                 leading: Icon(Icons.home),

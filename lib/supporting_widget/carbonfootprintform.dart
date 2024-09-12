@@ -4,8 +4,18 @@ import 'package:flutter/material.dart';
 
 class CarbonFootprintForm extends StatefulWidget {
   final String name;
-  const CarbonFootprintForm({
+  final int inputCount;
+  final String label1;
+  final String label2;
+  TextEditingController controller1 = TextEditingController();
+  TextEditingController controller2 = TextEditingController();
+  CarbonFootprintForm({
+    required this.inputCount,
+    required this.label1,
+    required this.label2,
     required this.name,
+    required this.controller1,
+    required this.controller2,
     super.key,
   });
   @override
@@ -53,20 +63,21 @@ class _CarbonFootprintFormState extends State<CarbonFootprintForm> {
               height: 30,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Coal Extracted : ",
+                  widget.label1 + ": ",
                   style: TextStyle(
                     fontFamily: 'Courier',
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(width: 20),
                 SizedBox(
-                  width: 120,
+                  width: 75,
                   height: 40,
                   child: TextField(
+                    controller: widget.controller1,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -81,24 +92,23 @@ class _CarbonFootprintFormState extends State<CarbonFootprintForm> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
+            SizedBox(height: 20),
+            widget.inputCount == 2 ? Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Coal Extracted : ",
+                  widget.label2 + ": ",
                   style: TextStyle(
                     fontFamily: 'Courier',
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(width: 20),
                 SizedBox(
-                  width: 120,
+                  width: 75,
                   height: 40,
                   child: TextField(
+                    controller: widget.controller2,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -112,7 +122,7 @@ class _CarbonFootprintFormState extends State<CarbonFootprintForm> {
                   ),
                 ),
               ],
-            ),
+            ) : Container(),
             // Text('Carbon Footprint: ${carbonFootprint.toStringAsFixed(2)} tones CO2'),
           ],
         ),
