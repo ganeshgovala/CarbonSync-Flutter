@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, sort_child_properties_last, prefer_const_constructors, use_key_in_widget_constructors
+// ignore_for_file: library_private_types_in_public_api, sort_child_properties_last, prefer_const_constructors, use_key_in_widget_constructors, unused_import
 
 import 'package:carbonsync/firebase_options.dart';
 import 'package:carbonsync/pages/AnalyticsPage.dart';
@@ -47,7 +47,17 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        title: Row(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width / 1.1,
+              alignment: Alignment.center,
+              child: Text("Indian Coal Mines", style: TextStyle(
+                fontSize: 34,
+              ),)
+            )
+          ]
+        ),
       ),
       drawer: Drawer(
         child: ListView(
