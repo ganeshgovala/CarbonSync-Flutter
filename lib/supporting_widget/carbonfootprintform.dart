@@ -26,14 +26,14 @@ class _CarbonFootprintFormState extends State<CarbonFootprintForm> {
   final _gasController = TextEditingController();
   double carbonFootprint = 0.0;
 
-  void _calculateFootprint() {
-    setState(() {
-      // Placeholder formula for calculation
-      double electricity = double.tryParse(_electricityController.text) ?? 0.0;
-      double gas = double.tryParse(_gasController.text) ?? 0.0;
-      carbonFootprint = electricity * 0.233 + gas * 0.185; // Dummy coefficients
-    });
-  }
+  // void _calculateFootprint() {
+  //   setState(() {
+  //     // Placeholder formula for calculation
+  //     double electricity = double.tryParse(_electricityController.text) ?? 0.0;
+  //     double gas = double.tryParse(_gasController.text) ?? 0.0;
+  //     carbonFootprint = electricity * 0.233 + gas * 0.185; // Dummy coefficients
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class _CarbonFootprintFormState extends State<CarbonFootprintForm> {
             height: 10,
           ),
           Text(
-            "1) Fuel",
+            "Number of tonnes of Coal Extracted",
             style: TextStyle(
               fontFamily: 'Courier',
               fontSize: 15,
@@ -76,7 +76,7 @@ class _CarbonFootprintFormState extends State<CarbonFootprintForm> {
              ),
           ),
           ElevatedButton(
-            onPressed: _calculateFootprint,
+            onPressed: () {},
             child: Text('Submit'),
           ),
           SizedBox(height: 20),

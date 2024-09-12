@@ -25,24 +25,37 @@ class _SettingsPageState extends State<SettingsPage> {
               alignment: Alignment.center,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height / 1.5,
-                    width: MediaQuery.of(context).size.width / 1.2,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: CarbonFootprintForm(),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text("Update Data", style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 54,
+                      fontWeight: FontWeight.bold,
+                    )),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(10),
-                    height: MediaQuery.of(context).size.height / 1.5,
-                    width: MediaQuery.of(context).size.width / 1.2,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: CarbonFootprintForm(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                       Container(
+                          height: MediaQuery.of(context).size.height / 2,
+                          width: MediaQuery.of(context).size.width / 2.1,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: CarbonFootprintForm(),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          height: MediaQuery.of(context).size.height / 2,
+                          width: MediaQuery.of(context).size.width / 2.1,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: CarbonFootprintForm(),
+                        ),
+                    ],
                   ),
                   Container(
                     margin: EdgeInsets.all(10),

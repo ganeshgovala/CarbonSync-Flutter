@@ -1,12 +1,14 @@
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:firebase_core/firebase_core.dart';
+// ignore_for_file: unused_import
 
-// class Authservice {
-//   final _auth = FirebaseAuth.instance;
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-//   // login
-//   Future<UserCredential> login(String email, String password) async {
-//     UserCredential userCredential = await _auth.signInWithEmailAndPassword(email: email, password: password);
-//     return userCredential;
-//   }
-// }
+class Authservice {
+  final _auth = FirebaseAuth.instance;
+
+  // login
+  Future<UserCredential> login(String email, String password) async {
+    UserCredential userCredential = await _auth.signInWithEmailAndPassword(email: email, password: password);
+    return userCredential;
+  }
+}
