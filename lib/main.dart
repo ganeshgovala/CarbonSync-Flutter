@@ -29,7 +29,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  int _currentIndex = 0;
+  int _currentIndex = 1;
 
   final List<Widget> _pages = [
     HomePage(),
