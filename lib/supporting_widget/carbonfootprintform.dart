@@ -86,18 +86,37 @@ class _CarbonFootprintFormState extends State<CarbonFootprintForm> {
           SizedBox(
             height: 20,
           ),
-          TextField(
-             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: "Fuel"
-             ),
+          Row(
+            children: [
+              Text(
+              "Coal Extracted : ",
+              style: TextStyle(
+                fontFamily: 'Courier',
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            SizedBox(width: 20),
+            SizedBox(
+              width: 120,
+              height: 40,
+              child: TextField(
+                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 2,
+                      )
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 2,
+                      )
+                    ),
+                   ),
+               ),
+            ),
+            ],
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Submit'),
-          ),
-          SizedBox(height: 20),
-
           // Text('Carbon Footprint: ${carbonFootprint.toStringAsFixed(2)} tones CO2'),
         ],
       ),
