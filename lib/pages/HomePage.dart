@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: 20),
                       Container(
-                        width: 700,
+                        width: 800,
                         child: Text("Empowering Indian coal mines with advanced tools for accurate carbon emission tracking " +
                              "strategic reduction, and sustainable practices. Achieve carbon neutrality with data-driven insights" +
                              "and scalable solutions tailored to your needs.",

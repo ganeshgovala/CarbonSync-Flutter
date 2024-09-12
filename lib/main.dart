@@ -46,7 +46,10 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.grey[900],
+        iconTheme: IconThemeData(color: Colors.white)
+      ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
