@@ -2,6 +2,7 @@
 
 import 'package:carbonsync/pages/AnalyticsPage.dart';
 import 'package:carbonsync/pages/HomePage.dart';
+import 'package:carbonsync/pages/LoginPage.dart';
 import 'package:carbonsync/pages/SettingsPage.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Dashboard(),
+      home:LoginPage(),
     );
   }
 }

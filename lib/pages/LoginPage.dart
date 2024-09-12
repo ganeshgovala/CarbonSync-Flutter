@@ -10,6 +10,36 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+             Material(
+              borderRadius: BorderRadius.circular(20),
+              elevation: 20,
+               child: Container(
+                height: 500,
+                width: 450,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset(),
+                      ],
+                    
+                    )
+                  ],
+                )
+               ),
+             )
+          ],
+        ),
+      ),
+    );
   }
 }
