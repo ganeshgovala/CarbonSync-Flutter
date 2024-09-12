@@ -31,9 +31,8 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Row(
                       children: [
-                        Image.asset(),
+                        Image.asset('lib/assets/emblem.png'),
                       ],
-                    
                     )
                   ],
                 )

@@ -1,12 +1,17 @@
 // ignore_for_file: library_private_types_in_public_api, sort_child_properties_last, prefer_const_constructors, use_key_in_widget_constructors
 
+import 'package:carbonsync/firebase_options.dart';
 import 'package:carbonsync/pages/AnalyticsPage.dart';
 import 'package:carbonsync/pages/HomePage.dart';
 import 'package:carbonsync/pages/LoginPage.dart';
 import 'package:carbonsync/pages/SettingsPage.dart';
+import 'package:carbonsync/pages/Graph1.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MyApp());
 }
 
@@ -19,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:LoginPage(),
+      home:Dashboard(),
     );
   }
 }

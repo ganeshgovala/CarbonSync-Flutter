@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "212984130942",
+    "project_id": "carbonsync-flutter",
+    "storage_bucket": "carbonsync-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212984130942:android:62bab825466d47a51e972f",
+        "android_client_info": {
+          "package_name": "com.carbonsync.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGi5kFQ_CMyqbdvs1S2vMs48gN0lzv1x8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
