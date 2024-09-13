@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Dashboard(),
+      home: LoginPage(),
     );
   }
 }
@@ -55,9 +55,42 @@ class _DashboardState extends State<Dashboard> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text('Navigation'),
+              child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset('lib/assets/emblem.png'),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Ministry of\nCoal",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30,
+                                    fontFamily: 'RobotoMono',
+                                    height: 1.2,
+                                  ),
+                              ),
+                              Text(
+                                "Government of India",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 16,
+                                    fontFamily: 'RobotoMono'),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: const Color.fromARGB(255, 45, 45, 45),
               ),
             ),
             ListTile(

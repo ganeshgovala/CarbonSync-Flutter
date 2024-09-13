@@ -20,6 +20,12 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
            padding: const EdgeInsets.all(8.0),
            child: Column(
             children: [
+              SizedBox(height: 30,),
+              Center(child: Text("Analytics", style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+              ),)),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -31,7 +37,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                       width: MediaQuery.of(context).size.width / 2 - 50,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(30),
-                        child: BarChartSample2()
+                        child: BarChartSample2(heading: "This Week", title: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],)
                       ),
                     ),
                   ),
@@ -43,24 +49,24 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                       width: MediaQuery.of(context).size.width / 2 - 50,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(30),
-                        child: BarChartSample2()
+                        child: BarChartSample2(heading: "This Year",title: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],)
                       ),
                     ),
                   ),
                 ],
               ),
               SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 500, 
-                    width: MediaQuery.of(context).size.width / 1.05,
-                    color: Colors.blue,
-                    child: Center(child: Text("Graph 3")),
-                  )
-                ],
-              )
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     Container(
+              //       height: 500, 
+              //       width: MediaQuery.of(context).size.width / 1.05,
+              //       color: const Color.fromARGB(255, 0, 140, 255),
+              //       child: Center(child: Text("Graph 3")),
+              //     )
+              //   ],
+              // )
             ],
            ),
          ),

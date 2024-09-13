@@ -117,12 +117,12 @@ class _UpdatedataState extends State<Updatedata> {
                         child: GestureDetector(
                           onTap: () {
                             addData();
-                            // widget._excavationController.text = "";
-                            // widget._transportationDeiselController.text = "";
-                            // widget._transportationPetrolController.text = "";
-                            // widget._machineryDieselController.text = "";
-                            // widget._machineryElectricityController.text = "";
-                            // widget._othersController.text = "";
+                            widget._excavationController.text = "";
+                            widget._transportationDeiselController.text = "";
+                            widget._transportationPetrolController.text = "";
+                            widget._machineryDieselController.text = "";
+                            widget._machineryElectricityController.text = "";
+                            widget._othersController.text = "";
                           },
                           child: Container(
                             decoration: BoxDecoration(

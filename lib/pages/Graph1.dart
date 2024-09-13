@@ -1,8 +1,16 @@
+import 'package:carbonsync/pages/Calculations.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class BarChartSample2 extends StatefulWidget {
-  BarChartSample2({super.key});
+  final String heading;
+  final List title;
+  BarChartSample2({
+    required this.title,
+    required this.heading,
+    super.key
+  });
   final Color leftBarColor = const Color.fromARGB(255, 248, 59, 255);
   final Color rightBarColor = const Color.fromARGB(255, 54, 73, 244);
   final Color avgColor = const Color.fromARGB(255, 255, 65, 65);
@@ -18,16 +26,20 @@ class BarChartSample2State extends State<BarChartSample2> {
 
   int touchedGroupIndex = -1;
 
+  // int getvalue() {
+  //   Calculations().calculations();
+  // }
+
   @override
   void initState() {
     super.initState();
-    final barGroup1 = makeGroupData(0, 10, 12);
-    final barGroup2 = makeGroupData(1, 16, 12);
-    final barGroup3 = makeGroupData(2, 18, 5);
-    final barGroup4 = makeGroupData(3, 20, 16);
-    final barGroup5 = makeGroupData(4, 17, 6);
-    final barGroup6 = makeGroupData(5, 19, 1.5);
-    final barGroup7 = makeGroupData(6, 10, 1.5);
+    final barGroup1 = makeGroupData(0, 45,5);
+    final barGroup2 = makeGroupData(1, 16, 7);
+    final barGroup3 = makeGroupData(2, 18, 7);
+    final barGroup4 = makeGroupData(3, 20, 8);
+    final barGroup5 = makeGroupData(4, 17, 8);
+    final barGroup6 = makeGroupData(5, 19, 9);
+    final barGroup7 = makeGroupData(6, 10, 9);
 
     final items = [
       barGroup1,
@@ -52,111 +64,143 @@ class BarChartSample2State extends State<BarChartSample2> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                makeTransactionsIcon(),
-                const SizedBox(
-                  width: 38,
-                ),
-                const Text(
-                  'Montly Data',
-                  style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 22),
-                ),
-                const SizedBox(
-                  width: 4,
-                ),
-                const Text(
-                  'state',
-                  style: TextStyle(color: Color.fromARGB(255, 92, 92, 92), fontSize: 16),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    widget.heading,
+                    style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 22, fontWeight: FontWeight.w500),
+                  ),
+                  Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 14,
+                              width: 14,
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 248, 59, 255),
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Text("Carbon footprints"),
+                          ],
+                        ),
+                        SizedBox(height: 5),
+                        Row(
+                          children: [
+                            Container(
+                              height: 14,
+                              width: 14,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 54, 73, 244),
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Text("Carbon Sinks"),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
             const SizedBox(
               height: 38,
             ),
             Expanded(
-              child: BarChart(
-                BarChartData(
-                  maxY: 20,
-                  barTouchData: BarTouchData(
-                    touchTooltipData: BarTouchTooltipData(
-                      getTooltipColor: ((group) {
-                        return Colors.grey;
-                      }),
-                      getTooltipItem: (a, b, c, d) => null,
-                    ),
-                    touchCallback: (FlTouchEvent event, response) {
-                      if (response == null || response.spot == null) {
-                        setState(() {
-                          touchedGroupIndex = -1;
-                          showingBarGroups = List.of(rawBarGroups);
-                        });
-                        return;
-                      }
-            
-                      touchedGroupIndex = response.spot!.touchedBarGroupIndex;
-            
-                      setState(() {
-                        if (!event.isInterestedForInteractions) {
-                          touchedGroupIndex = -1;
-                          showingBarGroups = List.of(rawBarGroups);
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: BarChart(
+                  BarChartData(
+                    maxY: 20,
+                    barTouchData: BarTouchData(
+                      touchTooltipData: BarTouchTooltipData(
+                        getTooltipColor: ((group) {
+                          return Colors.grey;
+                        }),
+                        getTooltipItem: (a, b, c, d) => null,
+                      ),
+                      touchCallback: (FlTouchEvent event, response) {
+                        if (response == null || response.spot == null) {
+                          setState(() {
+                            touchedGroupIndex = -1;
+                            showingBarGroups = List.of(rawBarGroups);
+                          });
                           return;
                         }
-                        showingBarGroups = List.of(rawBarGroups);
-                        if (touchedGroupIndex != -1) {
-                          var sum = 0.0;
-                          for (final rod
-                              in showingBarGroups[touchedGroupIndex].barRods) {
-                            sum += rod.toY;
+                            
+                        touchedGroupIndex = response.spot!.touchedBarGroupIndex;
+                            
+                        setState(() {
+                          if (!event.isInterestedForInteractions) {
+                            touchedGroupIndex = -1;
+                            showingBarGroups = List.of(rawBarGroups);
+                            return;
                           }
-                          final avg = sum /
-                              showingBarGroups[touchedGroupIndex]
+                          showingBarGroups = List.of(rawBarGroups);
+                          if (touchedGroupIndex != -1) {
+                            var sum = 0.0;
+                            for (final rod
+                                in showingBarGroups[touchedGroupIndex].barRods) {
+                              sum += rod.toY;
+                            }
+                            final avg = sum /
+                                showingBarGroups[touchedGroupIndex]
+                                    .barRods
+                                    .length;
+                            
+                            showingBarGroups[touchedGroupIndex] =
+                                showingBarGroups[touchedGroupIndex].copyWith(
+                              barRods: showingBarGroups[touchedGroupIndex]
                                   .barRods
-                                  .length;
-            
-                          showingBarGroups[touchedGroupIndex] =
-                              showingBarGroups[touchedGroupIndex].copyWith(
-                            barRods: showingBarGroups[touchedGroupIndex]
-                                .barRods
-                                .map((rod) {
-                              return rod.copyWith(
-                                  toY: avg, color: widget.avgColor);
-                            }).toList(),
-                          );
-                        }
-                      });
-                    },
-                  ),
-                  titlesData: FlTitlesData(
-                    show: true,
-                    rightTitles: const AxisTitles(
-                      sideTitles: SideTitles(showTitles: false),
+                                  .map((rod) {
+                                return rod.copyWith(
+                                    toY: avg, color: widget.avgColor);
+                              }).toList(),
+                            );
+                          }
+                        });
+                      },
                     ),
-                    topTitles: const AxisTitles(
-                      sideTitles: SideTitles(showTitles: false),
-                    ),
-                    bottomTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        showTitles: true,
-                        getTitlesWidget: bottomTitles,
-                        reservedSize: 42,
+                    titlesData: FlTitlesData(
+                      show: true,
+                      rightTitles: const AxisTitles(
+                        sideTitles: SideTitles(showTitles: false),
+                      ),
+                      topTitles: const AxisTitles(
+                        sideTitles: SideTitles(showTitles: false),
+                      ),
+                      bottomTitles: AxisTitles(
+                        sideTitles: SideTitles(
+                          showTitles: true,
+                          getTitlesWidget: bottomTitles,
+                          reservedSize: 42,
+                        ),
+                      ),
+                      leftTitles: AxisTitles(
+                        sideTitles: SideTitles(
+                          showTitles: true,
+                          reservedSize: 28,
+                          interval: 1,
+                          getTitlesWidget: leftTitles,
+                        ),
                       ),
                     ),
-                    leftTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        showTitles: true,
-                        reservedSize: 28,
-                        interval: 1,
-                        getTitlesWidget: leftTitles,
-                      ),
+                    borderData: FlBorderData(
+                      show: false,
                     ),
+                    barGroups: showingBarGroups,
+                    gridData: const FlGridData(show: false),
                   ),
-                  borderData: FlBorderData(
-                    show: false,
-                  ),
-                  barGroups: showingBarGroups,
-                  gridData: const FlGridData(show: false),
                 ),
               ),
             ),
@@ -197,7 +241,8 @@ class BarChartSample2State extends State<BarChartSample2> {
   }
 
   Widget bottomTitles(double value, TitleMeta meta) {
-    final titles = <String>['Mn', 'Te', 'Wd', 'Tu', 'Fr', 'St', 'Su'];
+    final title = widget.title;
+    final titles = title;
 
     final Widget text = Text(
       titles[value.toInt()],
